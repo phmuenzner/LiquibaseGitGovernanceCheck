@@ -1,0 +1,8 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
+  <changeSet id="add-name-column" author="philipp" runOnChange="true">
+    <addColumn tableName="test">
+      <column name="name" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

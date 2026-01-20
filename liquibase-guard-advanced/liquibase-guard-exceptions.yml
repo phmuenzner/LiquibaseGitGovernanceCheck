@@ -1,0 +1,11 @@
+
+# Whitelist-Ausnahmen für geänderte Changesets ohne runOnChange/runAlways
+# Einträge unterstützen Glob-Matching (fnmatch) für file/id/author
+exceptions:
+  - file: db/changelog/legacy/*.xml
+    id: '*'
+    author: '*'
+  # Beispiel: ein einzelnes CS erlauben
+  - file: db/changelog/002-add-column.xml
+    id: add-name-column
+    author: philipp

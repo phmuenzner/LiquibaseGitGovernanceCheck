@@ -1,0 +1,8 @@
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
+  <changeSet id="init" author="example">
+    <createTable tableName="test">
+      <column name="id" type="int"/>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>

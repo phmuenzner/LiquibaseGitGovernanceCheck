@@ -1,0 +1,26 @@
+
+name: Liquibase Governance Check
+
+on:
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  liquibase-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+      - name: Governance check (diff only)
+        env:
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags --prune origin "+refs/heads/*:refs/remotes/origin/*"
+          python scripts/liquibase_guard.py              --config liquibase-guard.yml              --head HEAD

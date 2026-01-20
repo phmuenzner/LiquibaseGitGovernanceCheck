@@ -1,0 +1,13 @@
+
+liquibase:
+  changelogPaths:
+    - db/changelog
+  fileExtensions:
+    - .xml
+  # Patterns der Basis-Branches, für die der Check laufen soll
+  baseBranchPatterns:
+    - main
+    - release/*
+    - hotfix/*
+  # Optional: separates Exceptions-File
+  exceptionsFile: liquibase-guard-exceptions.yml
